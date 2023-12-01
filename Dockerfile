@@ -12,11 +12,14 @@ FROM python:3.11 as backend
 COPY backend/ backend/
 WORKDIR backend/
 
-COPY --from=frontend frontend/dist/ dist/
-
 EXPOSE 80
 
 RUN pip install -r requirements.txt
 
-CMD echo "Hello World!"
+COPY --from=frontend frontend/dist/ app/static/
+
+CMD \
+	flask run \
+		--host=0.0.0.0 \
+		--port=80
 
