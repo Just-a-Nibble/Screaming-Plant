@@ -10,7 +10,7 @@ export const vuetify = createVuetify({
         colors: {
           primary: "#1867C0",
           secondary: "#5CBBF6",
-	}
+        }
       }
     }
   }
